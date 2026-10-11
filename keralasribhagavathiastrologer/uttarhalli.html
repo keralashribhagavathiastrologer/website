@@ -28,7 +28,7 @@
         content="https://res.cloudinary.com/cjyahkzq/image/upload/v1790795343/Kerala_Sri_Bhagavathi_logo.jpg">
     <title>Best Astrologer in Bangalore | Kerala Bhagavathi Jyothishyaru</title>
     <meta name="description"
-        content="Kerala Bhagavathi Jyothishyaru in Bangalore provides authentic Vedic astrology guidance, horoscope reading, palmistry, numerology, vastu, and marriage matching in Chikkalasandra.">
+        content="Kerala Bhagavathi Jyothishyaru in Bangalore provides authentic Vedic astrology guidance, horoscope reading, palmistry, numerology, vastu, and marriage matching in Uttarahalli.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -245,6 +245,36 @@
             justify-content: space-between;
             height: 68px;
             gap: 12px
+        }
+
+        /* English */
+        .logo:lang(en) {
+            font-size: 1.08rem;
+        }
+
+        /* Malayalam */
+        .logo:lang(ml) {
+            font-size: 0.805rem;
+        }
+
+        /* Hindi */
+        .logo:lang(hi) {
+            font-size: 0.95rem;
+        }
+
+        /* Kannada */
+        .logo:lang(kn) {
+            font-size: 0.875rem;
+        }
+
+        /* Tamil */
+        .logo:lang(ta) {
+            font-size: 0.85rem;
+        }
+
+        /* Telugu */
+        .logo:lang(te) {
+            font-size: 0.850rem;
         }
 
         .logo {
@@ -1281,15 +1311,162 @@
             }
         }
 
-        @media(prefers-reduced-motion:reduce) {
-            html {
-                scroll-behavior: auto
+        /* language switcher modal & button */
+        .lang-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border-radius: 50%;
+            border: 1.5px solid var(--gold);
+            background: rgba(40, 10, 0, .75);
+            color: var(--gold);
+            cursor: pointer;
+            transition: .25s;
+            flex: none;
+        }
+
+        .lang-btn svg {
+            width: 24px;
+            height: 24px;
+            display: block;
+        }
+
+        .lang-btn:hover {
+            background: var(--goldg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(246, 197, 49, .4);
+        }
+
+        .lang-modal-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .75);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .lang-modal-backdrop.open {
+            display: flex;
+        }
+
+        .lang-modal {
+            background: linear-gradient(165deg, rgba(25, 5, 0, .98), rgba(5, 0, 0, .99));
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            padding: 24px 20px;
+            width: 100%;
+            max-width: 360px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, .8), 0 0 20px rgba(246, 197, 49, .25);
+            position: relative;
+            animation: langPop .25s ease-out;
+        }
+
+        @keyframes langPop {
+            from {
+                transform: scale(.9);
+                opacity: 0;
             }
 
-            .zodiac-items,
-            .about::before {
-                animation: none
+            to {
+                transform: scale(1);
+                opacity: 1;
             }
+        }
+
+        .lang-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            border-bottom: 1px dashed rgba(246, 197, 49, .3);
+            padding-bottom: 10px;
+        }
+
+        .lang-modal-title {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            margin: 0;
+            background: var(--foil);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lang-close-btn {
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0 4px;
+            transition: .2s;
+        }
+
+        .lang-close-btn:hover {
+            color: var(--gold);
+        }
+
+        .lang-options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lang-option-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(246, 197, 49, .25);
+            background: rgba(246, 197, 49, .06);
+            color: #eaf1fc;
+            font: 600 .98rem var(--sans);
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .lang-option-btn:hover {
+            border-color: var(--gold);
+            background: rgba(246, 197, 49, .15);
+            transform: translateX(4px);
+        }
+
+        .lang-option-btn.active {
+            border-color: var(--gold);
+            background: var(--goldg);
+            color: #210d02;
+            font-weight: 700;
+        }
+
+        .lang-option-native {
+            font-size: .88rem;
+            opacity: .85;
+        }
+
+        /* Hide Google Translate top bar / branding */
+        .goog-te-banner-frame.skiptranslate,
+        body>.skiptranslate,
+        #goog-gt-tt,
+        .goog-te-balloon-frame {
+            display: none !important;
+        }
+
+        body {
+            top: 0px !important;
+        }
+
+        #google_translate_element {
+            display: none !important;
         }
     </style>
 </head>
@@ -1355,12 +1532,17 @@
             <path
                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.81 11.81 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413Z" />
         </symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path
+                d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </symbol>
     </svg>
 
     <header>
         <div class="wrap nav">
             <a class="logo" href="#home">Kerala Bhagavathi Jyothishyaru<small>Best Astrologer in Bangalore &bull;
-                    Chikkalasandra</small></a>
+                    Uttarahalli</small></a>
             <nav id="nav" aria-label="Main Navigation">
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -1370,7 +1552,25 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <a class="btn gold call" href="tel:9482146018"><svg class="ic">
+            <button class="lang-btn notranslate" id="langBtn" aria-label="Select Language"><svg
+                    viewBox="0 0 511.999 511.999" xml:space="preserve">
+                    <path style="fill:#B8C9D9;"
+                        d="M461.909,133.563H320.778c-4.986,0-9.706,2.226-12.878,6.077c-3.172,3.84-4.452,8.904-3.506,13.79 l37.108,191.607H190.331c-5.009,0-9.739,2.237-12.922,6.111c-3.172,3.862-4.43,8.96-3.45,13.857l26.713,133.563 c1.625,8.114,8.515,13.111,15.772,13.423h245.466c27.614,0,50.086-22.472,50.086-50.086V183.649 C511.995,156.035,489.523,133.563,461.909,133.563z">
+                    </path>
+                    <path style="fill:#E6F3FF;"
+                        d="M461.909,283.821h-50.086v-16.695c0-9.22-7.475-16.695-16.695-16.695 c-9.22,0-16.695,7.475-16.695,16.695v16.695h-50.086c-9.22,0-16.695,7.475-16.695,16.695s7.475,16.695,16.695,16.695h17.982 c3.195,19.862,12.261,34.916,25.553,50.151c-7.137,6.956-14.031,13.602-21.95,21.521c-6.52,6.519-6.52,17.09,0,23.611 c6.519,6.52,17.091,6.52,23.611,0c7.794-7.793,14.674-14.425,21.586-21.163c6.902,6.729,13.789,13.368,21.586,21.163 c6.519,6.52,17.09,6.521,23.611,0c6.52-6.52,6.52-17.091,0-23.611c-7.914-7.914-14.802-14.555-21.95-21.521 c13.293-15.234,22.357-30.288,25.553-50.151h17.982c9.22,0,16.695-7.475,16.695-16.695S471.129,283.821,461.909,283.821z M395.128,343.229c-7.323-8.736-12.152-16.753-14.652-26.017h29.303C407.279,326.476,402.449,334.494,395.128,343.229z">
+                    </path>
+                    <path style="fill:#2860CC;"
+                        d="M377.286,355.656c-2.504-6.4-8.682-10.618-15.549-10.618H190.331c-5.009,0-9.739,2.237-12.922,6.111 c-3.172,3.862-4.43,8.96-3.45,13.857l26.713,133.563c1.625,8.114,8.515,13.111,15.772,13.423c0.479,0.011,0.957,0.011,1.436,0 c3.706-0.167,7.413-1.581,10.496-4.419l144.693-133.563C378.121,369.346,379.79,362.056,377.286,355.656z">
+                    </path>
+                    <path style="fill:#167EE6;"
+                        d="M361.737,378.428H50.09c-27.619,0-50.086-22.467-50.086-50.086V50.086C0.004,22.468,22.472,0,50.09,0 h244.865c8,0,14.869,5.674,16.391,13.521l66.781,345.037c0.946,4.892-0.337,9.956-3.51,13.794 C371.443,376.2,366.726,378.428,361.737,378.428z">
+                    </path>
+                    <path style="fill:#E6F3FF;"
+                        d="M166.958,255.996c-36.814,0-66.781-29.967-66.781-66.781s29.967-66.781,66.781-66.781 c9.032,0,17.804,1.793,26.021,5.282c8.478,3.62,12.424,13.434,8.804,21.913c-3.62,8.446-13.402,12.424-21.913,8.804 c-4.044-1.729-8.413-2.609-12.913-2.609c-18.424,0-33.391,14.967-33.391,33.391s14.967,33.391,33.391,33.391 c12.326,0,23.119-6.717,28.923-16.695h-12.228c-9.228,0-16.695-7.467-16.695-16.695c0-9.228,7.467-16.695,16.695-16.695h33.391 c9.228,0,16.695,7.467,16.695,16.695C233.739,226.028,203.772,255.996,166.958,255.996z">
+                    </path>
+                </svg></button>
+            <a class="btn gold call notranslate" href="tel:9482146018"><svg class="ic">
                     <use href="#i-phone" />
                 </svg>9482146018</a>
             <button id="menu" aria-label="Open menu" aria-expanded="false"><svg class="ic">
@@ -1409,6 +1609,36 @@
                         alt="Kerala Bhagavathi Jyothishyaru banner 3" loading="lazy">
                 </picture>
             </div>
+            <div class="slide">
+                <picture>
+                    <img src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791705083/fd71cbfd-d78c-4b07-bc76-3def2547377b.png"
+                        alt="Kerala Bhagavathi Jyothishyaru banner 4" loading="lazy">
+                </picture>
+            </div>
+            <div class="slide">
+                <picture>
+                    <img src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791707799/9219cec9-5820-4396-a287-180003215863.png"
+                        alt="Kerala Bhagavathi Jyothishyaru banner 5" loading="lazy">
+                </picture>
+            </div>
+            <div class="slide">
+                <picture>
+                    <img src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791707811/ac2004ee-959f-47c0-9206-f5006efa94d2.png"
+                        alt="Kerala Bhagavathi Jyothishyaru banner 6" loading="lazy">
+                </picture>
+            </div>
+            <div class="slide">
+                <picture>
+                    <img src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791707819/6185f423-5815-493f-8775-263ce18d04c8.png"
+                        alt="Kerala Bhagavathi Jyothishyaru banner 7" loading="lazy">
+                </picture>
+            </div>
+            <div class="slide">
+                <picture>
+                    <img src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791707827/767120b2-c7c4-467b-9e59-d7a41cd76a55.png"
+                        alt="Kerala Bhagavathi Jyothishyaru banner 8" loading="lazy">
+                </picture>
+            </div>
             <button class="arrow prev" aria-label="Previous banner"><svg class="ic">
                     <use href="#i-arrow" />
                 </svg></button>
@@ -1416,7 +1646,10 @@
                     <use href="#i-arrow" />
                 </svg></button>
             <div class="dots"><button class="on" aria-label="Banner 1"></button><button
-                    aria-label="Banner 2"></button><button aria-label="Banner 3"></button></div>
+                    aria-label="Banner 2"></button><button aria-label="Banner 3"></button><button
+                    aria-label="Banner 4"></button><button aria-label="Banner 5"></button><button
+                    aria-label="Banner 6"></button><button aria-label="Banner 7"></button><button
+                    aria-label="Banner 8"></button></div>
         </div>
         <div class="intro">
             <div class="wrap">
@@ -1424,11 +1657,16 @@
                 <p>Best Astrologer in Bangalore &bull; Love, Marriage, Career, Health, Business, Family &amp; Vedic
                     Remedies</p>
                 <div class="btns">
-                    <a class="btn gold" href="tel:9482146018"><svg class="ic">
+                    <a class="btn gold notranslate" href="tel:9482146018"><svg class="ic">
                             <use href="#i-phone" />
                         </svg>Call 9482146018</a>
-                    <a class="btn line" href="https://maps.app.goo.gl/YXMS2kgMGEBVSShTA?g_st=ac" target="_blank"
-                        rel="noopener"><svg class="ic">
+                    <a class="btn gold notranslate" style="background:#25D366;color:#fff;border-color:#25D366"
+                        href="https://wa.me/919482146018" target="_blank" rel="noopener"><svg class="ic"
+                            style="fill:currentColor;stroke:none">
+                            <use href="#i-whatsapp" />
+                        </svg>WhatsApp</a>
+                    <a class="btn line notranslate" href="https://maps.app.goo.gl/YXMS2kgMGEBVSShTA?g_st=ac"
+                        target="_blank" rel="noopener"><svg class="ic">
                             <use href="#i-pin" />
                         </svg>Get Directions</a>
                 </div>
@@ -1441,7 +1679,7 @@
             <div>
                 <h2>About Guruji</h2>
                 <p>Kerala Bhagavathi Jyothishyaru represents generations of traditional Kerala temple astrology and
-                    Prashna Shastra. Practicing from Chikkalasandra in Bangalore, Guruji provides confidential,
+                    Prashna Shastra. Practicing from Uttarahalli in Bangalore, Guruji provides confidential,
                     compassionate, and precise Vedic astrological guidance.</p>
                 <p>Whether you are facing delays in marriage, relationship conflicts, financial instability, career
                     roadblocks, court cases, or persistent negative energies, our ancient Kerala Shastra remedies
@@ -1464,7 +1702,7 @@
                     <li>Accurate palmistry, gemstone recommendations &amp; numerology</li>
                     <li>Confidential, personalized, and respectful consultations</li>
                     <li>Remedies for love, marriage, health, and career hurdles</li>
-                    <li>Convenient center at Chikkalasandra</li>
+                    <li>Convenient center at Uttarahalli</li>
                 </ul>
             </div>
         </div>
@@ -1711,7 +1949,7 @@
     <section id="gallery">
         <div class="wrap">
             <h2 class="title">Our Center &amp; Gallery</h2>
-            <p class="sub">Authentic shopfront and office photos of Kerala Bhagavathi Jyothishyaru in Chikkalasandra,
+            <p class="sub">Authentic shopfront and office photos of Kerala Bhagavathi Jyothishyaru in Uttarahalli,
                 Bangalore.</p>
             <div class="gal">
                 <figure><img
@@ -1721,7 +1959,7 @@
                         src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791052298/7c9e2a6d-77ee-41fd-8aa6-318bf1643503.png"
                         alt="Gallery image" loading="lazy"></figure>
                 <figure><img
-                        src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791052305/3ca4c867-98df-4026-8a06-f1fdb47ca467.png"
+                        src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791716497/3c44f682-e7b8-4e9b-b1fa-9efa543c303b.png"
                         alt="Gallery image" loading="lazy"></figure>
                 <figure><img
                         src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791052328/489c1681-45f6-4eaf-8175-12f8c7bdc901.png"
@@ -1742,28 +1980,306 @@
                         src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791052364/d53bd971-36e4-436b-9c67-89844437e3f4.png"
                         alt="Gallery image" loading="lazy"></figure>
                 <figure><img
-                        src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791052367/7903c712-7ad3-4347-a8bc-cc567c55c4df.png"
+                        src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791716527/14c703ef-186b-40bf-8954-b9a8726be11f.png"
                         alt="Gallery image" loading="lazy"></figure>
+                <figure><img
+                        src="https://res.cloudinary.com/cjyahkzq/image/upload/v1791716466/8f60ca30-0251-4754-a174-9d0ad624b7ae.png"
+                        alt="Gallery image" loading="lazy"></figure>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials"
+        style="background: linear-gradient(rgba(3, 0, 0, .8), rgba(0, 0, 0, .9)), var(--bg-gallery) center/cover, var(--sky);">
+        <style>
+            #testimonials::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 3px;
+                background: var(--goldg);
+            }
+
+            .testi-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+                gap: 22px;
+            }
+
+            .testi-card {
+                background: var(--card);
+                border: 1.5px solid rgba(246, 197, 49, .35);
+                border-radius: 14px;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .1);
+                padding: 26px 22px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                transition: .25s;
+                position: relative;
+            }
+
+            .testi-card:hover {
+                transform: translateY(-4px);
+                border-color: rgba(255, 235, 130, .65);
+            }
+
+            .testi-header {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 14px;
+            }
+
+            .testi-avatar {
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                background: rgba(246, 197, 49, .15);
+                border: 1.5px solid var(--gold);
+                display: grid;
+                place-items: center;
+                color: var(--gold);
+                font: 700 1.1rem var(--serif);
+                flex: none;
+            }
+
+            .testi-name {
+                margin: 0;
+                font-family: var(--serif);
+                font-size: 1.22rem;
+                background: var(--foil);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .testi-stars {
+                color: var(--gold);
+                font-size: .85rem;
+                letter-spacing: 2px;
+                margin-top: 2px;
+            }
+
+            .testi-text {
+                font-size: .98rem;
+                color: #d2e1f9;
+                line-height: 1.65;
+                font-style: italic;
+                margin: 0;
+            }
+        </style>
+        <div class="wrap">
+            <h2 class="title">Testimonials</h2>
+            <p class="sub">Read what our clients have to say about their experiences and guidance received.</p>
+            <div class="testi-grid">
+                <div class="testi-card">
+                    <div>
+                        <div class="testi-header">
+                            <div class="testi-avatar">R</div>
+                            <div>
+                                <h3 class="testi-name">Ramesh Kumar</h3>
+                                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                        </div>
+                        <p class="testi-text">“I was looking for experienced astrology guidance and wanted clarity on
+                            some important life decisions. The consultation helped me understand my concerns and
+                            consider my options. A useful choice for anyone looking for a best astrologer and
+                            traditional Kerala Vedic astrology guidance.”</p>
+                    </div>
+                </div>
+
+                <div class="testi-card">
+                    <div>
+                        <div class="testi-header">
+                            <div class="testi-avatar">A</div>
+                            <div>
+                                <h3 class="testi-name">Anjali Menon</h3>
+                                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                        </div>
+                        <p class="testi-text">“I wanted guidance regarding a personal matter and was looking for a
+                            thoughtful consultation. The experience gave me an opportunity to discuss my concerns and
+                            explore possible next steps. A suitable option for people searching for an astrology-based
+                            solution provider.”</p>
+                    </div>
+                </div>
+
+                <div class="testi-card">
+                    <div>
+                        <div class="testi-header">
+                            <div class="testi-avatar">S</div>
+                            <div>
+                                <h3 class="testi-name">Suresh Nair</h3>
+                                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                        </div>
+                        <p class="testi-text">“I was interested in understanding horoscope compatibility and
+                            marriage-related astrology. The consultation provided an opportunity to discuss traditional
+                            astrological perspectives. Recommended for people exploring marriage astrology and horoscope
+                            matching services.”</p>
+                    </div>
+                </div>
+
+                <div class="testi-card">
+                    <div>
+                        <div class="testi-header">
+                            <div class="testi-avatar">P</div>
+                            <div>
+                                <h3 class="testi-name">Priya Sharma</h3>
+                                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                        </div>
+                        <p class="testi-text">“When I was exploring astrology for family-related concerns, I wanted a
+                            clear and respectful discussion. Traditional astrology offered a different perspective to
+                            consider. A relevant choice for people searching for a trusted astrologer and family
+                            guidance.”</p>
+                    </div>
+                </div>
+
+                <div class="testi-card">
+                    <div>
+                        <div class="testi-header">
+                            <div class="testi-avatar">M</div>
+                            <div>
+                                <h3 class="testi-name">Manoj Kumar</h3>
+                                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                        </div>
+                        <p class="testi-text">“I wanted to explore astrology for career and business decisions. The
+                            consultation gave me an opportunity to reflect on my situation from a traditional
+                            astrological perspective. Helpful for those looking for business astrology and career
+                            guidance.”</p>
+                    </div>
+                </div>
+
+                <div class="testi-card">
+                    <div>
+                        <div class="testi-header">
+                            <div class="testi-avatar">K</div>
+                            <div>
+                                <h3 class="testi-name">Kavitha Rao</h3>
+                                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                        </div>
+                        <p class="testi-text">“I was looking for an astrology consultation to discuss relationship
+                            concerns. The session provided space to explore my questions and consider the situation more
+                            thoughtfully. Suitable for people interested in love problem astrology and relationship
+                            guidance.”</p>
+                    </div>
+                </div>
+
+                <div class="testi-card">
+                    <div>
+                        <div class="testi-header">
+                            <div class="testi-avatar">V</div>
+                            <div>
+                                <h3 class="testi-name">Vikram Shetty</h3>
+                                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                        </div>
+                        <p class="testi-text">“I wanted to learn more about my horoscope and traditional Vedic
+                            astrology. The consultation helped me explore birth-chart interpretation and astrological
+                            concepts. A useful option for anyone searching for a Vedic astrologer or horoscope reading.”
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testi-card">
+                    <div>
+                        <div class="testi-header">
+                            <div class="testi-avatar">D</div>
+                            <div>
+                                <h3 class="testi-name">Deepa Krishnan</h3>
+                                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                        </div>
+                        <p class="testi-text">“I was interested in traditional guidance for my home and personal
+                            environment. Learning about Vastu principles and spiritual practices was informative. Worth
+                            considering for people looking for a Vastu consultant and traditional spiritual guidance.”
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testi-card">
+                    <div>
+                        <div class="testi-header">
+                            <div class="testi-avatar">A</div>
+                            <div>
+                                <h3 class="testi-name">Arjun Pillai</h3>
+                                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                        </div>
+                        <p class="testi-text">“Online astrology consultation is a convenient way to discuss personal
+                            questions without travelling. I was interested in learning about traditional astrology and
+                            its approach to life decisions. A useful option for people searching for an online
+                            astrologer.”</p>
+                    </div>
+                </div>
+
+                <div class="testi-card">
+                    <div>
+                        <div class="testi-header">
+                            <div class="testi-avatar">M</div>
+                            <div>
+                                <h3 class="testi-name">Meera Das</h3>
+                                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            </div>
+                        </div>
+                        <p class="testi-text">“I was looking for information about Kerala astrology and traditional
+                            horoscope analysis. The consultation helped me explore the subject and understand different
+                            astrological approaches. An option to consider when searching for a Kerala astrologer in
+                            Mangalore.”</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="videos" style="background: var(--stars), var(--sky);">
         <style>
-            .video-grid { grid-template-columns: 1fr 1fr; max-width: 900px; margin: 0 auto; }
-            .video-grid .v3 { grid-column: 1 / -1; width: calc(50% - 10px); margin: 0 auto; }
+            .video-grid {
+                grid-template-columns: 1fr 1fr;
+                max-width: 900px;
+                margin: 0 auto;
+            }
+
+            .video-grid .v3 {
+                grid-column: 1 / -1;
+                width: calc(50% - 10px);
+                margin: 0 auto;
+            }
+
             @media (max-width: 768px) {
-                .video-grid { grid-template-columns: 1fr; }
-                .video-grid .v3 { grid-column: 1; width: 100%; }
+                .video-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .video-grid .v3 {
+                    grid-column: 1;
+                    width: 100%;
+                }
             }
         </style>
         <div class="wrap">
             <h2 class="title">Video Testimonials</h2>
             <p class="sub">Hear from our clients about their experiences and remedies.</p>
             <div class="gal video-grid">
-                <figure><video src="https://res.cloudinary.com/cjyahkzq/video/upload/v1791055347/WhatsApp_Video_2026-10-02_at_20.56.32.mp4" controls preload="metadata" style="width: 100%; height: auto; display: block; background: #000;"></video></figure>
-                <figure><video src="https://res.cloudinary.com/cjyahkzq/video/upload/v1791055348/WhatsApp_Video_2026-10-02_at_20.56.34.mp4" controls preload="metadata" style="width: 100%; height: auto; display: block; background: #000;"></video></figure>
-                <figure class="v3"><video src="https://res.cloudinary.com/cjyahkzq/video/upload/v1791055350/WhatsApp_Video_2026-10-02_at_20.56.30.mp4" controls preload="metadata" style="width: 100%; height: auto; display: block; background: #000;"></video></figure>
+                <figure><video
+                        src="https://res.cloudinary.com/cjyahkzq/video/upload/v1791055347/WhatsApp_Video_2026-10-02_at_20.56.32.mp4"
+                        controls preload="metadata"
+                        style="width: 100%; height: auto; display: block; background: #000;"></video></figure>
+                <figure><video
+                        src="https://res.cloudinary.com/cjyahkzq/video/upload/v1791055348/WhatsApp_Video_2026-10-02_at_20.56.34.mp4"
+                        controls preload="metadata"
+                        style="width: 100%; height: auto; display: block; background: #000;"></video></figure>
+                <figure class="v3"><video
+                        src="https://res.cloudinary.com/cjyahkzq/video/upload/v1791055350/WhatsApp_Video_2026-10-02_at_20.56.30.mp4"
+                        controls preload="metadata"
+                        style="width: 100%; height: auto; display: block; background: #000;"></video></figure>
             </div>
         </div>
     </section>
@@ -1836,7 +2352,7 @@
     <div class="details">
         <div class="wrap dgrid">
             <div>
-                <h3>Chikkalasandra Center</h3>
+                <h3>Uttarahalli Center</h3>
                 <p>Conveniently accessible from Banashankari, Jayanagar, BTM Layout, Bannerghatta Road, and South
                     Bangalore.</p>
             </div>
@@ -1851,8 +2367,9 @@
             </div>
             <div>
                 <h3>Direct Assistance</h3>
-                <p>Phone consultations available for urgent marital, family or legal matters.</p><a class="btn gold"
-                    style="padding:8px 18px;font-size:.9rem" href="tel:9482146018"><svg class="ic">
+                <p>Phone consultations available for urgent marital, family or legal matters.</p><a
+                    class="btn gold notranslate" style="padding:8px 18px;font-size:.9rem" href="tel:9482146018"><svg
+                        class="ic">
                         <use href="#i-phone" />
                     </svg>9482146018</a>
             </div>
@@ -1862,22 +2379,134 @@
     <footer>
         <div class="wrap">
             <h2>Kerala Bhagavathi Jyothishyaru</h2>
-            <p>Authentic Traditional Vedic Astrology Guidance in Bangalore &bull; Chikkalasandra</p>
+            <p>Authentic Traditional Vedic Astrology Guidance in Bangalore &bull; Uttarahalli</p>
             <div class="bot">&copy; 2026 Kerala Bhagavathi Jyothishyaru. All rights reserved. &bull; Strictly
                 Confidential Consultations</div>
         </div>
     </footer>
 
-    <a class="float" href="tel:9482146018" aria-label="Call Best Astrologer in Bangalore"><svg class="ic">
+    <a class="float notranslate" href="tel:9482146018" aria-label="Call Best Astrologer in Bangalore"><svg class="ic">
             <use href="#i-phone" />
         </svg>Call Now: 9482146018</a>
 
-    <a class="float-wa" href="https://wa.me/919482146018" target="_blank" rel="noopener"
+    <a class="float-wa notranslate" href="https://wa.me/919482146018" target="_blank" rel="noopener"
         aria-label="WhatsApp Best Astrologer in Bangalore"><svg class="ic-wa">
             <use href="#i-whatsapp" />
         </svg></a>
 
+    <!-- Language Selection Modal -->
+    <div class="lang-modal-backdrop notranslate" id="langModal">
+        <div class="lang-modal notranslate" role="dialog" aria-modal="true" aria-labelledby="langModalTitle">
+            <div class="lang-modal-header notranslate">
+                <h3 class="lang-modal-title notranslate" id="langModalTitle">Select Language</h3>
+                <button class="lang-close-btn notranslate" id="langCloseBtn"
+                    aria-label="Close language selector">&times;</button>
+            </div>
+            <div class="lang-options-list notranslate">
+                <button class="lang-option-btn notranslate active" data-lang="en"><span>English</span><span
+                        class="lang-option-native">English</span></button>
+                <button class="lang-option-btn notranslate" data-lang="ml"><span>Malayalam</span><span
+                        class="lang-option-native">മലയാളം</span></button>
+                <button class="lang-option-btn notranslate" data-lang="kn"><span>Kannada</span><span
+                        class="lang-option-native">ಕನ್ನಡ</span></button>
+                <button class="lang-option-btn notranslate" data-lang="hi"><span>Hindi</span><span
+                        class="lang-option-native">हिन्दी</span></button>
+                <button class="lang-option-btn notranslate" data-lang="ta"><span>Tamil</span><span
+                        class="lang-option-native">தமிழ்</span></button>
+                <button class="lang-option-btn notranslate" data-lang="te"><span>Telugu</span><span
+                        class="lang-option-native">తెలుగు</span></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="google_translate_element"></div>
+
     <script>
+        // Google Translate Initialization
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,ml,kn,hi,ta,te',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        // Language Modal and Switcher Logic
+        const langBtn = document.getElementById('langBtn');
+        const langModal = document.getElementById('langModal');
+        const langCloseBtn = document.getElementById('langCloseBtn');
+        const currentLangLabel = document.getElementById('currentLangLabel');
+        const langOptions = document.querySelectorAll('.lang-option-btn');
+
+        const langNames = {
+            en: 'English',
+            ml: 'Malayalam',
+            kn: 'Kannada',
+            hi: 'Hindi',
+            ta: 'Tamil',
+            te: 'Telugu'
+        };
+
+        function setLanguage(langCode) {
+            if (currentLangLabel && langNames[langCode]) {
+                currentLangLabel.textContent = langNames[langCode];
+            }
+            langOptions.forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === langCode);
+            });
+
+            // Update cookie used by Google Translate
+            const domain = window.location.hostname;
+            if (langCode === 'en') {
+                document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + domain;
+            } else {
+                document.cookie = 'googtrans=/en/' + langCode + '; path=/;';
+                document.cookie = 'googtrans=/en/' + langCode + '; path=/; domain=' + domain;
+            }
+
+            // Trigger translate via select element if loaded, otherwise reload with cookie
+            const select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = langCode;
+                select.dispatchEvent(new Event('change'));
+            } else {
+                location.reload();
+            }
+        }
+
+        // Restore selected language on load
+        function initLanguageState() {
+            const match = document.cookie.match(/(?:^|;\s*)googtrans=\/en\/([a-z]{2})/);
+            const savedLang = match ? match[1] : 'en';
+            if (langNames[savedLang]) {
+                if (currentLangLabel) currentLangLabel.textContent = langNames[savedLang];
+                langOptions.forEach(btn => {
+                    btn.classList.toggle('active', btn.getAttribute('data-lang') === savedLang);
+                });
+            }
+        }
+        initLanguageState();
+
+        if (langBtn && langModal) {
+            langBtn.addEventListener('click', () => {
+                langModal.classList.add('open');
+            });
+            langCloseBtn.addEventListener('click', () => {
+                langModal.classList.remove('open');
+            });
+            langModal.addEventListener('click', (e) => {
+                if (e.target === langModal) langModal.classList.remove('open');
+            });
+            langOptions.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.getAttribute('data-lang');
+                    setLanguage(lang);
+                    langModal.classList.remove('open');
+                });
+            });
+        }
+
         // Zodiac ticker (text-style glyphs so phones don't turn them into colour emoji)
         const Z = [["\u2648", "Mesha (Aries)"], ["\u2649", "Vrishabha (Taurus)"], ["\u264A", "Mithuna (Gemini)"], ["\u264B", "Karka (Cancer)"], ["\u264C", "Simha (Leo)"], ["\u264D", "Kanya (Virgo)"], ["\u264E", "Tula (Libra)"], ["\u264F", "Vrishchika (Scorpio)"], ["\u2650", "Dhanu (Sagittarius)"], ["\u2651", "Makara (Capricorn)"], ["\u2652", "Kumbha (Aquarius)"], ["\u2653", "Meena (Pisces)"]];
         const row = Z.map(([g, n]) => '<span class="zodiac-item"><span class="zodiac-glyph g">' + g + '\uFE0E</span>' + n + '</span><span class="zodiac-star">\u2726</span>').join('');
@@ -1921,6 +2550,7 @@
             }, { threshold: 0.05 }).observe(heroSection);
         }
     </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
